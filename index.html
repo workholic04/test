@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Satguru Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .navbar-brand img {
+      height: 60px;
+      margin-right: 10px;
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+    .whatsapp-float img {
+      width: 50px;
+    }
+    footer {
+      background: #343a40;
+      color: white;
+      padding: 20px;
+    }
+    .form-section {
+      background: #f8f9fa;
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="images/Logo.jpg" alt="Logo" width="120px" style="border-radius: 4px;">
+      
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="py-5 text-center bg-light">
+  <div class="container">
+    <h1 class="display-5">Reliable Home Services</h1>
+    <p class="lead">We provide electricians, plumbers, carpenters, and more—right at your doorstep.</p>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="container py-5">
+  <div class="row text-center">
+    <h2 class="mb-4">Our Services</h2>
+    <div class="col-md-3"><p><i class="fas fa-tools"></i> Electrician</p></div>
+    <div class="col-md-3"><p><i class="fas fa-hammer"></i> Carpenter</p></div>
+    <div class="col-md-3"><p><i class="fas fa-wrench"></i> Plumber</p></div>
+    <div class="col-md-3"><p><i class="fas fa-paint-roller"></i> Painting</p></div>
+    <div class="col-md-3"><p><i class="fas fa-bolt"></i> Geyser Repair</p></div>
+    <div class="col-md-3"><p><i class="fas fa-water"></i> Water Purifier</p></div>
+    <div class="col-md-3"><p><i class="fas fa-cogs"></i> Washing Machine</p></div>
+    <div class="col-md-3"><p><i class="fas fa-th-large"></i> Tiles Work</p></div>
+  </div>
+</section>
+
+<!-- Form -->
+<section class="form-section">
+  <div class="container">
+    <h3 class="mb-4 text-center">Request a Service</h3>
+    <form id="serviceForm">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <input type="text" id="address" class="form-control" placeholder="Address" required>
+        </div>
+
+        <!-- Location -->
+        <div class="col-md-12 mb-3">
+          <label for="location">Your Location</label>
+          <div class="input-group">
+            <input type="text" id="location" class="form-control" placeholder="Click to detect location" readonly>
+            <button type="button" class="btn btn-secondary" onclick="getLocation()">Detect</button>
+          </div>
+        </div>
+
+        <!-- Service Selection -->
+        <div class="col-md-6 mb-3">
+          <select class="form-select" id="service" required>
+            <option value="">Choose a Service</option>
+            <option>Electrician</option>
+            <option>Carpenter</option>
+            <option>Plumber</option>
+            <option>Geyser Repair</option>
+            <option>Painting</option>
+            <option>Tiles Work</option>
+            <option>Washing Machine</option>
+            <option>Water Purifier</option>
+          </select>
+        </div>
+
+        <!-- Time Slot -->
+        <div class="col-md-6 mb-3">
+          <label for="timeSlot" class="form-label">Preferred Time Slot</label>
+          <select id="timeSlot" class="form-select" required>
+            <option value="">Select a time slot</option>
+            <option value="9am-12pm">9:00 AM – 12:00 PM</option>
+            <option value="12pm-3pm">12:00 PM – 3:00 PM</option>
+            <option value="3pm-6pm">3:00 PM – 6:00 PM</option>
+            <option value="urgent">Urgent (Immediate)</option>
+          </select>
+        </div>
+
+        <!-- Urgency -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label d-block">Is it urgent?</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="urgency" id="urgentYes" value="Yes" required>
+            <label class="form-check-label" for="urgentYes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="urgency" id="urgentNo" value="No">
+            <label class="form-check-label" for="urgentNo">No</label>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary">Book Now</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+
+<!-- WhatsApp -->
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+</a>
+
+<!-- Footer -->
+<footer class="text-center">
+  <p>&copy; 2025 Home Services. All rights reserved.</p>
+  <div>
+    <a href="#"><i class="fab fa-facebook text-white me-3"></i></a>
+    <a href="#"><i class="fab fa-instagram text-white me-3"></i></a>
+    <a href="#"><i class="fab fa-twitter text-white"></i></a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  function showPosition(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const mapLink = `https://www.google.com/maps?q=${lat},${lon}`;
+    document.getElementById("location").value = mapLink;
+  }
+
+  function showError(error) {
+    alert("Error detecting location.");
+  }
+
+  document.getElementById("serviceForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById("name")?.value || "",
+      phone: document.getElementById("phone")?.value || "",
+      address: document.getElementById("address")?.value || "",
+      service: document.getElementById("service")?.value || "",
+      time: document.getElementById("timeSlot")?.value || "",
+      urgency: document.querySelector('input[name="urgency"]:checked')?.value || "",
+      location: document.getElementById("location")?.value || ""
+    };
+
+    console.log("DATA TO SEND:", data);  // 👈 this will help us debug
+
+    fetch("https://script.google.com/macros/s/AKfycbz5yClchNEDeNUtmusSgMgs8Vr4aPAeTxD5DppyZGObTdIjEt2s5VClyb2MhMW_qo8i/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then((res) => res.text())
+    .then((response) => {
+      alert("Form submitted successfully!");
+      document.getElementById("serviceForm").reset();
+    })
+    .catch((err) => {
+      console.error("Submit error:", err);
+      alert("Error submitting form.");
+    });
+  });
+</script>
+
+
+
+
+</body>
+</html>
